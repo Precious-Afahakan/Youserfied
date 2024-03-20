@@ -1,0 +1,11 @@
+.home {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/dew-leaf-sad-draught-water.jpg"),
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(87, 75, 84, 0.73));
+  background-size: cover;
+  background-repeat: no-repeat;
+}
