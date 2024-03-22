@@ -13,10 +13,13 @@ const Register = () => {
     password: "",
     userType: "",
   });
+
   const [isLoading, setIsLoading] = useState(false);
   const [confirm, setConfirm] = useState("");
   const [errors, setErrors] = useState({});
+
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prevData) => ({ ...prevData, [name]: value }));
@@ -31,6 +34,7 @@ const Register = () => {
     e.preventDefault();
 
     const validation = {};
+
     if (!data.fullname.trim()) {
       validation.fullname = " Full name is required";
     }
@@ -67,6 +71,7 @@ const Register = () => {
         navigate("/login");
         return;
       }
+
       if (!foundUser) {
         const newUser = [...users, data];
         localStorage.setItem("users", JSON.stringify(newUser));
