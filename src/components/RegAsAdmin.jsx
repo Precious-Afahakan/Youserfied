@@ -99,6 +99,7 @@ const RegAsAdmin = () => {
         <Input
           name="password"
           value={data.password}
+          type={"password"}
           placeholder="input password"
           onChange={(e) => handleChange(e)}
         />
@@ -109,6 +110,7 @@ const RegAsAdmin = () => {
         <Input
           name="confirmPassword"
           value={confirm}
+          type={"password"}
           placeholder="confirm password"
           onChange={(e) => setConfirm(e.target.value)}
         />

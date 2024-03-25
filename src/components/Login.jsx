@@ -12,7 +12,6 @@ const Login = () => {
     password: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [confirm, setConfirm] = useState("");
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -40,10 +39,6 @@ const Login = () => {
       validation.password = "password is required";
     } else if (data.password.length < 6) {
       validation.password = "password should be at least 6 characters";
-    }
-
-    if (confirm !== data.password) {
-      validation.confirmPassword = "password not matched";
     }
 
     setErrors(validation);
@@ -83,21 +78,12 @@ const Login = () => {
         <Input
           name="password"
           value={data.password}
+          type={"password"}
           placeholder="input password"
           onChange={(e) => handleChange(e)}
         />
         {errors.password && (
           <span style={{ color: "red" }}>{errors.password}</span>
-        )}
-
-        <Input
-          name="confirmPassword"
-          value={confirm}
-          placeholder="confirm password"
-          onChange={(e) => setConfirm(e.target.value)}
-        />
-        {errors.confirmPassword && (
-          <span style={{ color: "red" }}>{errors.confirmPassword}</span>
         )}
 
         <Button

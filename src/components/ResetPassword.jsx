@@ -69,6 +69,7 @@ const ResetPassword = () => {
         <Input
           name={"password"}
           value={data.password}
+          type={"password"}
           placeholder={"Input new password"}
           onChange={(e) => handleChange(e)}
         />
@@ -79,6 +80,7 @@ const ResetPassword = () => {
         <Input
           name={"confirmPassword"}
           value={data.confirmPassword}
+          type={"password"}
           placeholder={"Confirm password"}
           onChange={(e) => handleChange(e)}
         />

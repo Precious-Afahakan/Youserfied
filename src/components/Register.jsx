@@ -112,6 +112,7 @@ const Register = () => {
         <Input
           name="password"
           value={data.password}
+          type={"password"}
           placeholder="input password"
           onChange={(e) => handleChange(e)}
         />
@@ -122,6 +123,7 @@ const Register = () => {
         <Input
           name="confirmPassword"
           value={confirm}
+          type={"password"}
           placeholder="confirm password"
           onChange={(e) => setConfirm(e.target.value)}
         />
