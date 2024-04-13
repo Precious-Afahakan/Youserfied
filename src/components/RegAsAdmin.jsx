@@ -5,11 +5,13 @@ import Button from "../forms/Button";
 import { toast } from "react-toastify";
 import { getUserToken } from "../Authentication/api";
 import "../styles/register.css";
+import { v4 as uuidv4 } from "uuid";
 
 const RegAsAdmin = () => {
   const [data, setData] = useState({
-    fullname: "",
     email: "",
+    fullname: "",
+    id: uuidv4(),
     password: "",
     userType: "Admin",
   });
@@ -80,6 +82,7 @@ const RegAsAdmin = () => {
       <form className="register-form">
         <h2>Register as admin</h2>
         <Input
+          label={"Fullname:"}
           name="fullname"
           value={data.fullname}
           placeholder="input fullname"
@@ -89,6 +92,7 @@ const RegAsAdmin = () => {
           <span style={{ color: "red" }}>{errors.fullname}</span>
         )}
         <Input
+          label={"Email:"}
           name="email"
           value={data.email}
           placeholder="input email"
@@ -97,6 +101,7 @@ const RegAsAdmin = () => {
         {errors.email && <span style={{ color: "red" }}>{errors.email}</span>}
 
         <Input
+          label={"Password:"}
           name="password"
           value={data.password}
           type={"password"}
@@ -108,6 +113,7 @@ const RegAsAdmin = () => {
         )}
 
         <Input
+          label={"Confirm password"}
           name="confirmPassword"
           value={confirm}
           type={"password"}
@@ -125,7 +131,10 @@ const RegAsAdmin = () => {
         />
         <div>
           <span>
-            Already registered? <Link to={"/login"}>Login</Link>
+            Already registered?{" "}
+            <Link to={"/login"} className="links">
+              Login
+            </Link>
           </span>
         </div>
       </form>

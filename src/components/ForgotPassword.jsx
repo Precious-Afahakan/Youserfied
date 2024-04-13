@@ -48,7 +48,6 @@ const ForgotPassword = () => {
       }
       if (found) {
         getUserToken(found, navigate, "/reset-password");
-        toast("move to reset");
       }
       setIsLoading(false);
     }
@@ -58,6 +57,7 @@ const ForgotPassword = () => {
       <form className="forgot-form">
         <h2>Forgot password?</h2>
         <Input
+          label={"Email:"}
           placeholder={"input email"}
           name={"email"}
           value={data.email}

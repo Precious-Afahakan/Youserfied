@@ -5,11 +5,13 @@ import { getUserToken } from "../Authentication/api";
 import Input from "../forms/Inputs";
 import Button from "../forms/Button";
 import "../styles/register.css";
+import { v4 as uuidv4 } from "uuid";
 
 const Register = () => {
   const [data, setData] = useState({
-    fullname: "",
     email: "",
+    fullname: "",
+    id: uuidv4(),
     password: "",
     userType: "",
   });
@@ -75,7 +77,6 @@ const Register = () => {
       if (!foundUser) {
         const newUser = [...users, data];
         localStorage.setItem("users", JSON.stringify(newUser));
-        toast("Successful");
       }
 
       getUserToken(data, navigate);
@@ -85,14 +86,12 @@ const Register = () => {
 
   return (
     <div className="register-div">
-      <div className="left-div">
-        <h1>
-          <i>Welcome</i>
-        </h1>
-      </div>
+      <div className="left-div"></div>
       <form className="register-form">
         <h2>Register here</h2>
+
         <Input
+          label={"Fullname:"}
           name="fullname"
           value={data.fullname}
           placeholder="input fullname"
@@ -102,6 +101,7 @@ const Register = () => {
           <span style={{ color: "red" }}>{errors.fullname}</span>
         )}
         <Input
+          label={"Email:"}
           name="email"
           value={data.email}
           placeholder="input email"
@@ -110,6 +110,7 @@ const Register = () => {
         {errors.email && <span style={{ color: "red" }}>{errors.email}</span>}
 
         <Input
+          label={"Password:"}
           name="password"
           value={data.password}
           type={"password"}
@@ -121,6 +122,7 @@ const Register = () => {
         )}
 
         <Input
+          label={"Confirm password:"}
           name="confirmPassword"
           value={confirm}
           type={"password"}
@@ -155,7 +157,10 @@ const Register = () => {
         />
         <div>
           <span>
-            Already registered? <Link to={"/login"}>Login</Link>
+            Already registered?
+            <Link to={"/login"} className="links">
+              Login
+            </Link>
           </span>
         </div>
       </form>

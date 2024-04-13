@@ -67,6 +67,7 @@ const ResetPassword = () => {
       <form className="reset-form">
         <h4>Hello {userInfo.fullname}, reset your password here</h4>
         <Input
+          label={"New password"}
           name={"password"}
           value={data.password}
           type={"password"}
@@ -78,6 +79,7 @@ const ResetPassword = () => {
         )}
 
         <Input
+          label={"Confirm password"}
           name={"confirmPassword"}
           value={data.confirmPassword}
           type={"password"}

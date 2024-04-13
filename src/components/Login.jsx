@@ -44,19 +44,16 @@ const Login = () => {
     setErrors(validation);
 
     if (Object.keys(validation).length === 0) {
-      setIsLoading(true);
       const users = JSON.parse(localStorage.getItem("users"));
       const foundUser = users.find((user) => {
         return user.email === data.email && user.password === data.password;
       });
       if (!foundUser) {
         toast("Invalid credentials, check email or password");
-        navigate("/register");
         return;
       }
-
+      setIsLoading(true);
       if (foundUser) {
-        toast("login sucessful");
         navigate("/");
       }
       getUserToken(foundUser, navigate);
@@ -68,6 +65,7 @@ const Login = () => {
       <form className="login-form">
         <h2>Login here</h2>
         <Input
+          label={"Email:"}
           name="email"
           value={data.email}
           placeholder="input email"
@@ -76,6 +74,7 @@ const Login = () => {
         {errors.email && <span style={{ color: "red" }}>{errors.email}</span>}
 
         <Input
+          label={"Password:"}
           name="password"
           value={data.password}
           type={"password"}
@@ -93,19 +92,21 @@ const Login = () => {
         />
         <div>
           <span>
-            Not registered? <Link to={"/register"}>Register</Link>
+            Not registered?
+            <Link to={"/register"} className="links">
+              Register
+            </Link>
           </span>
           <br />
           <span>
-            Forgot password? <Link to={"/forgot-password"}>Click here</Link>
+            Forgot password?
+            <Link to={"/forgot-password"} className="links">
+              Click here
+            </Link>
           </span>
         </div>
       </form>
-      <div className="right-part">
-        <h1>
-          <i>Welcome</i>
-        </h1>
-      </div>
+      <div className="right-part"></div>
     </div>
   );
 };

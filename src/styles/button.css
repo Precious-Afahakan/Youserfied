@@ -1,4 +1,4 @@
-/* .button-container {
+.button-container {
   width: 400px;
   height: 50px;
   display: flex;
@@ -6,6 +6,6 @@
   justify-content: center;
 }
 .buttons {
-  background-color: aqua;
-
-} */
+  background-color: orangered;
+  color: black;
+}
